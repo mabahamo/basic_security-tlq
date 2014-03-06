@@ -71,6 +71,16 @@ bash "opening ufw for ssh traffic" do
   EOC
 end
 
+unless node[:ufw][:allow_ports].nil?
+  node[:ufw][:allow_ports].each do |port|
+    bash "allowing port #{port}" do
+      user "root"
+      code "ufw allow #{port}"
+    end
+  end
+end
+
+
 
 # if we've specified firewall rules in the node definition
 # then apply them here. These should be in the format:

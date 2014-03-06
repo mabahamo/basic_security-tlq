@@ -10,3 +10,4 @@
 # {"port": "x", "ip": "xxx.xxx.xxx.xxx"}
 # which means allow traffic on port x from ip xxx.xxx.xxx.xxx
 default[:firewall_allow] = []
+default[:firewall][:allow_ports] = []
