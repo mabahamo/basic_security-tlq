@@ -56,9 +56,13 @@ bash 'ssh hardening' do
   EOC
 end
 
-service 'ssh' do
-  action :restart
+execute 'ssh restart' do
+  command "/etc/init.d/ssh restart"
 end
+
+#service 'ssh' do
+#  action :restart
+#end
 
 # now allow SSH traffic through the firewall and restart SSH
 # unless otherwise specified, block everything
